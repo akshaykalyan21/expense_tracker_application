@@ -33,18 +33,15 @@ A sleek front-end web application for tracking expenses on a minute-by-minute ba
 
 
 
-Getting Started
-
-Follow these steps to run the project locally:
-
 1. Clone this repository
 git clone https://github.com/akshaykalyan21/expense_tracker_application.git
+
 cd expense_tracker_application
 
-2. Install dependencies
+3. Install dependencies
 npm install
 
-3. Run in development mode
+4. Run in development mode
 npm run dev
 
 
