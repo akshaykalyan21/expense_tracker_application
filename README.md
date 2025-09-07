@@ -1,17 +1,21 @@
-# Expense Tracker Application
+# 📊 Expense Tracker Application
 
-A sleek front-end web application for tracking expenses on a minute-by-minute basis.
+A sleek front-end web application for tracking expenses on a minute-by-minute basis.  
 
-**Live Demo:** [View it here](https://expense-tracker-application-kohl.vercel.app/)
+**🌐 Live Demo:** [Click here](https://expense-tracker-application-kohl.vercel.app/)  
 
 ---
 
 ## 🚀 Features
 
-- **Real-time Expense Tracking** — Record expenses as they occur.  
+- **Real-time Expense Tracking** — Record income & expenses as they occur.  
 - **Minute-Level Precision** — Log timestamps down to the minute.  
-- **Responsive UI** — Clean interface powered by modern frontend design.  
-- **Cutting-Edge Stack** — React, TypeScript, Vite, and Tailwind CSS.  
+- **Average Monthly Income & Expenses** — See monthly financial insights.  
+- **Savings Goals** — Plan purchases, track monthly savings, and visualize progress.  
+- **Multiple Categories** — Income (Salary, Business, Freelance, Investment, Other) and Expenses (Food, Rent, Bills, Shopping, Entertainment, Travel, Healthcare, Education, Other).  
+- **Expense Distribution** — Visualized with charts by category.  
+- **Responsive UI** — Clean, mobile-friendly interface.  
+- **Modern Tech Stack** — Built with React, TypeScript, Vite, and Tailwind CSS.  
 
 ---
 
@@ -19,46 +23,48 @@ A sleek front-end web application for tracking expenses on a minute-by-minute ba
 
 | Category        | Technology        |
 |-----------------|------------------|
-| Frontend        | React + TypeScript |
-| Bundler         | Vite             |
-| Styling         | Tailwind CSS     |
-| Config & Build  | PostCSS, Vite    |
-| Linting         | ESLint           |
+| **Frontend**    | React + TypeScript |
+| **Bundler**     | Vite             |
+| **Styling**     | Tailwind CSS     |
+| **Config**      | PostCSS, Vite    |
+| **Linting**     | ESLint           |
 
 ---
 
 ## 📂 Project Structure
 
+bash
 expense_tracker_application/
-├── src/
-├── public/
-├── index.html
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-├── postcss.config.js
-├── eslint.config.js
-└── README.md
+├── src/                 # React components & logic
+├── public/              # Static assets
+├── index.html           # Entry HTML
+├── package.json         # Dependencies & scripts
+├── tsconfig.json        # TypeScript config
+├── tailwind.config.js   # Tailwind CSS config
+├── postcss.config.js    # PostCSS config
+├── eslint.config.js     # ESLint rules
+└── README.md            # Project documentation
 
-## ⚡ Getting Started
+Getting Started
 
 Follow these steps to run the project locally:
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/akshaykalyan21/expense_tracker_application.git
-   cd expense_tracker_application
+1. Clone this repository
+git clone https://github.com/akshaykalyan21/expense_tracker_application.git
+cd expense_tracker_application
+
 2. Install dependencies
 npm install
 
-3 Run in development mode
+3. Run in development mode
 npm run dev
-Then open your browser at: http://localhost:5173
+
+
+Open your browser at: http://localhost:5173
 
 4. Build for production
 npm run build
 
 5. Preview production build
 npm run preview
-
 
