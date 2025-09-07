@@ -31,19 +31,7 @@ A sleek front-end web application for tracking expenses on a minute-by-minute ba
 
 ---
 
-## 📂 Project Structure
 
-bash
-expense_tracker_application/
-├── src/                 # React components & logic
-├── public/              # Static assets
-├── index.html           # Entry HTML
-├── package.json         # Dependencies & scripts
-├── tsconfig.json        # TypeScript config
-├── tailwind.config.js   # Tailwind CSS config
-├── postcss.config.js    # PostCSS config
-├── eslint.config.js     # ESLint rules
-└── README.md            # Project documentation
 
 Getting Started
 
