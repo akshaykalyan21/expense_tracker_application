@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 import { useTransactions } from '../context/TransactionContext';
-import { Moon, Sun, DollarSign } from 'lucide-react';
+import { Moon, Sun, DollarSign, Target } from 'lucide-react';
+import SavingsGoalForm from './SavingsGoalForm';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,6 +12,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => {
   const { darkMode, toggleDarkMode } = useTransactions();
+  const [isSavingsGoalFormOpen, setIsSavingsGoalFormOpen] = useState(false);
 
   const tabs = [
     { id: 'dashboard', label: 'Dashboard' },
@@ -36,16 +39,26 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => 
               </div>
             </div>
             
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-            >
-              {darkMode ? (
-                <Sun className="h-5 w-5 text-yellow-500" />
-              ) : (
-                <Moon className="h-5 w-5 text-gray-600" />
-              )}
-            </button>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setIsSavingsGoalFormOpen(true)}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                <Target className="h-4 w-4" />
+                <span className="hidden sm:inline">Set Savings Goal</span>
+              </button>
+              
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              >
+                {darkMode ? (
+                  <Sun className="h-5 w-5 text-yellow-500" />
+                ) : (
+                  <Moon className="h-5 w-5 text-gray-600" />
+                )}
+              </button>
+            </div>
           </div>
           
           <nav className="flex space-x-8 -mb-px">
@@ -69,6 +82,11 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => 
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         {children}
       </main>
+      
+      <SavingsGoalForm
+        isOpen={isSavingsGoalFormOpen}
+        onClose={() => setIsSavingsGoalFormOpen(false)}
+      />
     </div>
   );
 };

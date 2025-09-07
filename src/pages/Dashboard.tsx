@@ -1,12 +1,14 @@
 import React from 'react';
 import { useTransactions } from '../context/TransactionContext';
 import SummaryCard from '../components/SummaryCard';
+import SavingsGoalCard from '../components/SavingsGoalCard';
 import Charts from '../components/Charts';
-import { TrendingUp, TrendingDown, Activity } from 'lucide-react';
+import { TrendingUp, TrendingDown, Activity, Target, BarChart3 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
-  const { transactions, getSummary } = useTransactions();
+  const { transactions, getSummary, getAverageStats, savingsGoals } = useTransactions();
   const summary = getSummary();
+  const averageStats = getAverageStats();
 
   // Calculate recent activity
   const recentTransactions = transactions
@@ -53,10 +55,11 @@ const Dashboard: React.FC = () => {
     });
   };
 
+  const activeSavingsGoals = savingsGoals.filter(goal => goal.progress < goal.cost);
   return (
     <div className="space-y-6">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
         <SummaryCard
           title="Total Balance"
           amount={summary.balance}
@@ -73,7 +76,36 @@ const Dashboard: React.FC = () => {
           type="expense"
           change={expenseChange}
         />
+        <SummaryCard
+          title="Avg Monthly Income"
+          amount={averageStats.avgMonthlyIncome}
+          type="income"
+        />
+        <SummaryCard
+          title="Avg Monthly Expenses"
+          amount={averageStats.avgMonthlyExpenses}
+          type="expense"
+        />
       </div>
+
+      {/* Active Savings Goals */}
+      {activeSavingsGoals.length > 0 && (
+        <div>
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="p-2 bg-green-100 dark:bg-green-900/20 rounded-lg">
+              <Target className="h-5 w-5 text-green-600 dark:text-green-400" />
+            </div>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              Active Savings Goals
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {activeSavingsGoals.map((goal) => (
+              <SavingsGoalCard key={goal.id} goal={goal} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -161,9 +193,14 @@ const Dashboard: React.FC = () => {
 
       {/* Charts */}
       <div>
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-          Financial Overview
-        </h2>
+        <div className="flex items-center space-x-3 mb-6">
+          <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+            <BarChart3 className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+          </div>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            Financial Overview
+          </h2>
+        </div>
         <Charts />
       </div>
     </div>
