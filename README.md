@@ -31,7 +31,8 @@ A sleek front-end web application for tracking expenses on a minute-by-minute ba
 
 ---
 
-
+⚡ Getting Started
+Follow these steps to run the project locally:
 
 1. Clone this repository
   git clone https://github.com/akshaykalyan21/expense_tracker_application.git
